@@ -1,6 +1,5 @@
 from datetime import datetime
 from pydantic import BaseModel, Field
-from typing import Optional
 
 class OrderBase(BaseModel):
     user_id: int = Field(..., example=1)
@@ -10,7 +9,7 @@ class OrderBase(BaseModel):
     delivery: str = Field(..., example="Почта")
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 class OrderCreate(OrderBase):

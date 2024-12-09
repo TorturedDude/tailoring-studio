@@ -1,6 +1,5 @@
 from http.client import HTTPException
-from typing import Annotated
-from fastapi import APIRouter, Depends, Path
+from fastapi import APIRouter, Depends
 from fastapi.security import OAuth2PasswordRequestForm
 from sqlalchemy.orm import Session
 from starlette import status
@@ -17,7 +16,7 @@ router = APIRouter()
 async def login(
         form_data: OAuth2PasswordRequestForm = Depends(),
         db: Session = Depends(get_db)
-) -> Token:
+):
     user = db.query(User).filter(User.number == form_data.username).first()
     if not user:
         raise HTTPException(

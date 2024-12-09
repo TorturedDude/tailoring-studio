@@ -11,6 +11,9 @@ class MasterBase(BaseModel):
     class Config:
         from_attributes = True
 
+class MasterCreate(BaseModel):
+    """Схема для создания мастера"""
+    pass
 
 class MasterResponse(MasterBase):
     """Схема для возврата данных мастера."""
