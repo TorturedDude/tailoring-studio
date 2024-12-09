@@ -9,6 +9,6 @@ from routers.db_session import get_db
 
 router = APIRouter()
 
-@router.get("/clothes", response_model=ClothingModelWithDetails)
+@router.get("/clothes", response_model=list[ClothingModelWithDetails])
 async def get_all_clothes(db: Session = Depends(get_db)):
     return db.query(ClothingModel).all()

@@ -9,7 +9,7 @@ from routers.db_session import get_db
 
 router = APIRouter()
 
-@router.get("/review", response_model=ReviewResponse)
+@router.get("/review", response_model=list[ReviewResponse])
 async def get_all_review(db: Session = Depends(get_db)):
     return db.query(Review).all()
 

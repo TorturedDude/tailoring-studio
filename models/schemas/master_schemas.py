@@ -11,7 +11,7 @@ class MasterBase(BaseModel):
     class Config:
         from_attributes = True
 
-class MasterCreate(BaseModel):
+class MasterCreate(MasterBase):
     """Схема для создания мастера"""
     pass
 

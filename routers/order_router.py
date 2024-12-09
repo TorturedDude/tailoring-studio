@@ -9,7 +9,7 @@ from routers.db_session import get_db
 
 router = APIRouter()
 
-@router.get("/orders", response_model=OrderResponse)
+@router.get("/orders", response_model=list[OrderResponse])
 async def get_all_orders(db: Session = Depends(get_db)):
     return db.query(Order).all()
 
