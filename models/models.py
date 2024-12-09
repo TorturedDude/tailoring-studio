@@ -33,7 +33,7 @@ class ClothingModel(Base):
     description = Column(Text, nullable=False, default="")
     price = Column(BigInteger, nullable=False, default=500)
     color = Column(String, nullable=False, default="white")
-    average_rating = Column(Integer)
+    average_rating = Column(Integer, default=0)
     size = Column(String, nullable=False, default="S")
     # img = Column()
 

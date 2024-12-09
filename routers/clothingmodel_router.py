@@ -22,11 +22,11 @@ async def create_cloth(cloth: ClothingModelCreate, db: Session = Depends(get_db)
         description=cloth.description,
         price=cloth.price,
         color=cloth.color,
-        size=cloth.size
+        size=cloth.size,
     )
 
     db.add(new_cloth)
     db.commit()
-    db.refresh()
+    db.refresh(new_cloth)
 
     return new_cloth

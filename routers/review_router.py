@@ -24,6 +24,6 @@ async def create_review(review: ReviewCreate, db: Session = Depends(get_db)):
 
     db.add(new_review)
     db.commit()
-    db.refresh()
+    db.refresh(new_review)
 
     return new_review
